@@ -58,43 +58,6 @@ header .logo {
     font-weight: bold;
     margin-bottom: 10px;
 }
-.hero {
-    background-image: url(./imagens/teste2.webp);
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    opacity: 1;
-    font-family: "Libre Bodoni", serif;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 2.7vw;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 2.3vw;
-    margin-bottom: 20px;
-}
-
-.hero .btn {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 2vw;
-    cursor: pointer;
-    font-family: "Libre Bodoni", serif;
-}
-
-.hero .btn:hover {
-    background-color: #c3e4c4;
-}
 
 .about {
     background-color: #f7f7f7;
@@ -173,7 +136,6 @@ header .logo {
 
 .button-name {
     align-items: center;
-    appearance: none;
     background-color: #fcfcfd;
     border-radius: 4px;
     border-width: 0;
@@ -197,7 +159,6 @@ header .logo {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    white-space: nowrap;
     will-change: box-shadow, transform;
     font-size: 18px;
     margin-left: 60px;
@@ -228,8 +189,22 @@ header .logo {
     color: #ffffff;
   }
 
+  .planos {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #fff;
+}
+.plano {
+    background: #e2e2e2;
+    border-radius: 8px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+}
+
   footer {
-    background-color: rgb(29, 64, 110);
+    background-color: rgb(29, 110, 63);
     color: #fff;
     padding: 10px;
     text-align: center;
