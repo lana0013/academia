@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro JS</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <form onsubmit="return logar();">
+        <h3>Cadastro</h3>
+        <input type="text" placeholder="Usuario" id="usuario" required>
+        <input type="password" placeholder="Senha" id="senha" required>
+        <input type="email" placeholder="Mail" id="mail" required>
+        <input type="tel" placeholder="Telefone" id="telefone" required>
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD-KEA4pc8CMIoUBLra0XrUnOtjeCN1TNM",
+            authDomain: "academia-31ede.firebaseapp.com",
+            projectId: "academia-31ede",
+            storageBucket: "academia-31ede.firebasestorage.app",
+            messagingSenderId: "519568309383",
+            appId: "1:519568309383:web:59d950cb186216619ecc22",
+            measurementId: "G-G01R67P6JP"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        function logar() {
+            var usuario = document.getElementById('usuario').value;
+            var senha = document.getElementById('senha').value;
+            var mail = document.getElementById('mail').value;
+            var telefone = document.getElementById('telefone').value;
+
+            if (usuario === "admin" && 
+                senha === "admin" &&
+                mail === "@admin" &&
+                telefone === "1234") {
+                alert('Sucesso');
+                location.href = "home.html";
+                return false; 
+            } else {
+                alert('Algo está incorreto');
+                return false; 
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="login.css"> 
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="return cadastrar();">
+            <h3>Cadastro de Usuário</h3>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" placeholder="Digite seu telefone" required>
+
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD-KEA4pc8CMIoUBLra0XrUnOtjeCN1TNM",
+            authDomain: "academia-31ede.firebaseapp.com",
+            projectId: "academia-31ede",
+            storageBucket: "academia-31ede.firebasestorage.app",
+            messagingSenderId: "519568309383",
+            appId: "1:519568309383:web:59d950cb186216619ecc22",
+            measurementId: "G-G01R67P6JP"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        function cadastrar() {
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var senha = document.getElementById('senha').value;
+            var telefone = document.getElementById('telefone').value;
+
+            if (nome && email && senha && telefone) {
+                alert('Cadastro realizado com sucesso!');
+                location.href = "home.html";
+                return false; 
+            } else {
+                alert('Por favor, preencha todos os campos.');
+                return false; 
+            }
+        }
+    </script>
+</body>
+</html>
