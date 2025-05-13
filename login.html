@@ -1,77 +1,103 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro JS </title>
+    <title>Login - Academia Coliseum</title>
     <link rel="stylesheet" href="login.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&family=Audiowide&display=swap" rel="stylesheet">
 </head>
 <body>
-    
 
-    <form>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
 
-        <h3>Cadastro</h3>
-        <input type="text" placeholder="Usuario" id="usuario">
-        <input type="password" placeholder="Senha" id="senha">
-        <input type="text" placeholder="Mail" id="mail">
-        <input type="number" placeholder="Telefone" id="telefone">
-        <input type="submit" onclick="logar(); return false">
+    showRegister.addEventListener('click', function(e) {
+        e.preventDefault();
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+    });
 
-    </form>
+    showLogin.addEventListener('click', function(e) {
+        e.preventDefault();
+        registerForm.style.display = 'none';
+        loginForm.style.display = 'block';
+    });
 
-    <script type="module">
-<<<<<<< HEAD
-=======
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyD-KEA4pc8CMIoUBLra0XrUnOtjeCN1TNM",
-          authDomain: "academia-31ede.firebaseapp.com",
-          projectId: "academia-31ede",
-          storageBucket: "academia-31ede.firebasestorage.app",
-          messagingSenderId: "519568309383",
-          appId: "1:519568309383:web:59d950cb186216619ecc22",
-          measurementId: "G-G01R67P6JP"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
->>>>>>> 1f7b664e359dd5f47dd0e80c914de5408e2744f5
-      
-        function logar(){
-
-            var usuario = document.getElementById('usuario').value;
-            var senha = document.getElementById('senha').value;
-            var mail = document.getElementById('mail').value;
-            var telefone = document.getElementById('telefone').value;
-
-            if(usuario == "admin" && 
-               senha == "admin" &&
-               mail == "@admin" &&
-               tel == "1234" && ){
-                alert('Sucesso');
-                location.href = "home.html";
-            }else{
-                alert('Algo está incorreto');
-            }
-
+    registerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const password = document.getElementById('registerPassword').value;
+        const confirm = document.getElementById('registerConfirm').value;
+        
+        if (password !== confirm) {
+            alert('As senhas não coincidem!');
+            return;
         }
+        
+        alert('Cadastro realizado com sucesso! Redirecionando...');
+        setTimeout(() => {
+            window.location.href = 'index.html'; 
+        }, 1500);
+    });
 
-        function SalvarCadastro (Event) {
-            EVENT.PREVENT
-        }
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Login realizado com sucesso! Redirecionando...');
+        setTimeout(() => {
+            window.location.href = 'index.html'; 
+        }, 1500);
+    });
+});
+</script>
+    <div class="login-container">
+        <div class="form-container">
+            <form id="loginForm" class="active-form">
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label for="loginEmail">E-mail</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn-login">Entrar</button>
+                <p class="toggle-form">Não tem uma conta? <a href="#" id="showRegister">Cadastre-se</a></p>
+            </form>
 
-    </script>
+            <form id="registerForm" style="display: none;">
+                <h2>Cadastro</h2>
+                <div class="form-group">
+                    <label for="registerName">Nome Completo</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">E-mail</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Senha</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirm">Confirme a Senha</label>
+                    <input type="password" id="registerConfirm" required>
+                </div>
+                <button type="submit" class="btn-register">Cadastrar</button>
+                <p class="toggle-form">Já tem uma conta? <a href="#" id="showLogin">Faça login</a></p>
+            </form>
+        </div>
+        <div class="welcome-message">
+            <h1>Bem-vindo à <span>Academia Coliseum</span></h1>
+            <p>Transforme seu corpo e sua mente com nossos programas exclusivos</p>
+        </div>
+    </div>
 
+    <script src="login.js"></script>
 </body>
 </html>
